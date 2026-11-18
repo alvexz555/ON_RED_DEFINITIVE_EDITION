@@ -1,0 +1,439 @@
+
+/* =====================================
+   ON RED - HYBRID ARCADE MENU
+   VERSION 3.0
+===================================== */
+
+.main-menu,
+.main-menu * {
+    box-sizing: border-box;
+}
+
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    overflow-y: auto;
+
+    background-color: #080B12;
+    background-image:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(18, 75, 120, 0.22),
+            transparent 65%
+        );
+
+    color: #FFFFFF;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* GRID BACKGROUND */
+
+.main-menu::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        linear-gradient(
+            rgba(50, 145, 220, 0.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(50, 145, 220, 0.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 36px 36px;
+
+    pointer-events: none;
+}
+
+/* MAIN CONTENT */
+
+.menu-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 42px;
+}
+
+/* LOGO */
+
+.menu-header {
+    width: 100%;
+
+    text-align: center;
+}
+
+.game-logo {
+    color: #FFFFFF;
+
+    font-size: 64px;
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    white-space: nowrap;
+}
+
+.game-logo span {
+    color: #FF3948;
+
+    text-shadow:
+        0 0 12px rgba(255, 57, 72, 0.55);
+}
+
+.game-subtitle {
+    margin-top: 14px;
+
+    color: #58BFFF;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+/* MENU ACTIONS */
+
+.menu-actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+/* BUTTON BASE */
+
+.menu-button {
+    width: 100%;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(90, 160, 215, 0.28);
+    border-radius: 9px;
+
+    background: #111B29;
+
+    color: #FFFFFF;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-button:active {
+    transform: scale(0.97);
+}
+
+/* PLAY */
+
+.play-button {
+    gap: 15px;
+
+    border: 1px solid #168BFF;
+
+    background: #123D60;
+
+    box-shadow:
+        0 0 20px rgba(22, 139, 255, 0.16);
+}
+
+.button-arrow {
+    color: #58BFFF;
+
+    font-size: 25px;
+}
+
+/* BEST SCORE */
+
+.score-panel {
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+
+    background: #0F1724;
+}
+
+.score-label {
+    color: #8293A8;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.score-value {
+    color: #58BFFF;
+
+    font-size: 24px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+/* SETTINGS */
+
+.settings-button {
+    background: #101722;
+}
+
+/* FOOTER */
+
+.menu-footer {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #637187;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+/* SETTINGS PANEL */
+
+.settings-panel {
+    position: absolute;
+    z-index: 5;
+
+    width: 88%;
+    max-width: 340px;
+
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    text-align: center;
+
+    border: 1px solid #168BFF;
+    border-radius: 12px;
+
+    background: #0B111D;
+}
+
+.settings-panel h2 {
+    color: #FFFFFF;
+
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
+.settings-panel p {
+    color: #8796A9;
+    font-size: 11px;
+}
+
+/* HIDDEN ELEMENTS */
+
+.hidden {
+    display: none !important;
+}
+
+/* SMALL SCREENS */
+
+@media screen and (max-height: 650px) {
+
+    .menu-content {
+        gap: 22px;
+    }
+
+    .game-logo {
+        font-size: 50px;
+    }
+
+    .game-subtitle {
+        margin-top: 8px;
+    }
+
+    .menu-button {
+        height: 46px;
+    }
+
+    .score-panel {
+        height: 62px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .main-menu {
+        padding: 18px;
+    }
+
+    .game-logo {
+        font-size: 56px;
+    }
+
+    .game-subtitle {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+/* ==========================================
+   ON RED - GAME OVER
+   VERSION 3.4 - CLEAN STRETCH
+========================================== */
+
+.melting-title {
+    position: relative;
+    display: inline-block;
+
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 1000;
+    line-height: 1.1;
+    letter-spacing: -2px;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ff7777 15%,
+        #ff2020 42%,
+        #c00000 75%,
+        #650000 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: none;
+
+    transform-origin: center top;
+    will-change: transform;
+
+    animation: redPlasticStretch 2s ease-in-out infinite;
+}
+
+@keyframes redPlasticStretch {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+
+    30% {
+        transform: scaleY(1.22);
+    }
+
+    45% {
+        transform: scaleY(1.30);
+    }
+
+    60% {
+        transform: scaleY(1.12);
+    }
+
+    75% {
+        transform: scaleY(0.94);
+    }
+
+    88% {
+        transform: scaleY(1.04);
+    }
+}
+
+
+/* MENU COMPLETO · NAVEGAÇÃO E PAINÉIS */
+.main-menu { padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom)); }
+.menu-content { max-width: 390px; gap: 25px; }
+.menu-actions { gap: 10px; }
+.menu-actions .menu-button { min-height: 48px; }
+.menu-best-preview { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 11px 15px; border: 1px solid rgba(88,191,255,.2); border-radius: 8px; background: rgba(15,23,36,.88); }
+.menu-best-preview .score-value { font-size: 20px; }
+.menu-panel { position: relative; z-index: 4; width: min(100%, 430px); max-height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: 24px; display: flex; flex-direction: column; gap: 16px; border: 1px solid rgba(22,139,255,.55); border-radius: 12px; background: rgba(8,14,24,.98); box-shadow: 0 18px 60px rgba(0,0,0,.45); color: #fff; text-align: left; }
+.menu-panel.hidden { display: none !important; }
+.menu-panel-heading { text-align: center; display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+.menu-kicker { color: #58BFFF; font-size: 9px; font-weight: 800; letter-spacing: 3px; }
+.menu-panel-heading h2 { color: #fff; font-size: clamp(19px,5vw,25px); letter-spacing: 2px; }
+.phase-card, .record-card, .control-group { display: flex; flex-direction: column; gap: 10px; padding: 16px; border: 1px solid rgba(130,147,168,.2); border-radius: 8px; background: #0F1724; }
+.phase-card h3, .control-group h3 { color: #fff; font-size: 14px; letter-spacing: 1px; }
+.phase-card p, .record-caption, .setting-row p { color: #91A0B3; font-size: 11px; line-height: 1.5; }
+.phase-number { color: #58BFFF; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+.phase-status { color: #58BFFF; font-size: 9px; font-weight: 800; letter-spacing: 1.5px; }
+.phase-development { border-color: rgba(130,147,168,.16); opacity: .82; }
+.phase-development .phase-status { color: #A5B1C1; }
+.phase-available .menu-button { min-height: 46px; }
+.menu-panel-note { color: #7F8DA1; font-size: 10px; line-height: 1.5; text-align: center; }
+.menu-back { min-height: 46px; flex: 0 0 auto; }
+.record-card { align-items: center; text-align: center; padding: 22px 16px; }
+.record-value { color: #58BFFF; font-size: clamp(30px,9vw,42px); letter-spacing: 3px; }
+.record-upcoming strong { color: #A5B1C1; font-size: 17px; letter-spacing: 2px; }
+.control-group h3 { color: #58BFFF; font-size: 10px; letter-spacing: 2px; }
+.control-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; color: #DCE3ED; font-size: 11px; line-height: 1.4; }
+.control-row span:last-child { flex: 1 1 130px; }
+kbd, .control-icon { min-width: 27px; min-height: 27px; padding: 5px 7px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #34465C; border-radius: 5px; background: #172333; color: #fff; font: 800 10px Arial,sans-serif; }
+.control-icon { color: #58BFFF; font-size: 15px; }
+.setting-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.setting-row label { color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
+.setting-row strong { color: #58BFFF; font-size: 18px; }
+.volume-slider { width: 100%; accent-color: #168BFF; cursor: pointer; touch-action: pan-y; }
+.setting-scale { display: flex; justify-content: space-between; color: #637187; font-size: 9px; font-weight: 800; letter-spacing: 1px; }
+.menu-button:focus-visible, .volume-slider:focus-visible { outline: 2px solid #58BFFF; outline-offset: 3px; }
+@media (min-width: 700px) { .main-menu { padding: 30px; } .menu-content { max-width: 420px; gap: 28px; } .game-logo { font-size: 72px; } .menu-actions .menu-button { min-height: 52px; } .menu-panel { padding: 28px; } }
+@media (max-height: 700px) { .main-menu { align-items: flex-start; } .menu-content { gap: 16px; } .game-logo { font-size: 48px; } .menu-panel { padding: 16px; gap: 11px; } .phase-card, .record-card, .control-group { padding: 12px; gap: 7px; } }
+
+/* CONFIGURAÇÃO DA POSIÇÃO DO ANALÓGICO */
+.joystick-setting-row { align-items: center; }
+.setting-select { min-width: 112px; min-height: 40px; padding: 0 10px; border: 1px solid #34465C; border-radius: 6px; background: #172333; color: #FFFFFF; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.setting-select:focus-visible { outline: 2px solid #58BFFF; outline-offset: 3px; }
