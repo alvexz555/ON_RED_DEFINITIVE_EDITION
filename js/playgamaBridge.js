@@ -71,6 +71,16 @@
             await sdk.initialize();
             initialized = true;
 
+            // Notify Playgama that the game has finished loading and is ready.
+            // The Bridge QA tool requires this platform message.
+            if (sdk.platform && typeof sdk.platform.sendMessage === "function") {
+                try {
+                    await sdk.platform.sendMessage("game_ready");
+                } catch (readyError) {
+                    console.warn("[ON RED] Não foi possível enviar o evento game_ready.", readyError);
+                }
+            }
+
             const ads = sdk.advertisement;
             if (ads && typeof ads.setMinimumDelayBetweenInterstitial === "function") {
                 ads.setMinimumDelayBetweenInterstitial(INTERSTITIAL_MIN_DELAY_SECONDS);
