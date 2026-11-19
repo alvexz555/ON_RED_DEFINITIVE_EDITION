@@ -69,6 +69,14 @@
         if (music && music.paused && unlocked) safePlay(music);
     }
 
+    function pauseEffects() {
+        activeEffects.forEach(media => { if (!media.paused) media.pause(); });
+    }
+
+    function resumeEffects() {
+        activeEffects.forEach(media => { if (media.paused) safePlay(media); });
+    }
+
     function stopMusic() {
         if (music) {
             music.pause();
@@ -124,6 +132,8 @@
         playMusic,
         pauseMusic,
         resumeMusic,
+        pauseEffects,
+        resumeEffects,
         stopMusic,
         unlock,
         getCurrentTrack: () => currentTrack

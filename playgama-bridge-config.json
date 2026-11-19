@@ -1,0 +1,21 @@
+{
+  "showLoadingText": true,
+  "game": {
+    "adaptToSafeArea": true
+  },
+  "advertisement": {
+    "useBuiltInErrorPopup": true,
+    "interstitial": {
+      "preloadOnStart": true
+    },
+    "banner": {
+      "placements": [
+        {
+          "id": "menu_banner"
+        }
+      ],
+      "placementFallback": "menu_banner"
+    },
+    "useAdvertisementErrorPopup": true
+  }
+}
